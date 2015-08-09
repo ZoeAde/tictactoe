@@ -46,10 +46,11 @@ var Board = function() {
   this.$cells = $('.box');
 };
 
-Board.prototype.resetBoard = function() {
+Board.prototype.resetBoard  function() {
   this.moveArr = [null, null, null, null, null, null, null, null, null];
   //reset score, turncounter, players, reset dom
-
+  this.player1.playerScore = 0;
+  this.player2.playerScore = 0;
 };
 // makeMove() - sets a box to a player/team and updates the moveArr array. Make sure to prevent occupied boxes from being used (alert the user).
 Board.prototype.makeMove() = function() {
@@ -61,7 +62,7 @@ Board.prototype.makeMove() = function() {
 // winCondition() - array which holds the winining conditions for the board
 Board.prototype.winCondition = function() {
   var winningArr = {
-    //arrau of possible winning hands
+    //array of possible winning hands
 };
 
 // checkWinner() - checks the board for winning combinations against the values of each player/team and alerts the players which player won or if it's a tie
@@ -77,8 +78,7 @@ Board.prototype.nullArray = function() {
   this.moveArr = [];
 };
 
-
-
+//jQuery
 $(document).on('ready', function() {
 
 //call reset board on instance
