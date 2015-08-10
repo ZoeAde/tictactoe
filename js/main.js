@@ -19,8 +19,14 @@ Game.prototype.nextPlayer = function() {
 };
 
 //method to determine whose turn it is based on turn counter
-
-
+Game.prototype.turn = function() {
+  if (this.turnCounter === 1) {
+    this.turn = player1;
+  }
+  if (this.turnCounter === 2) {
+    this.turn = player2;
+  }
+};
 
 // init() - initializes a new game with a board and two players. Make sure to add a click event handler for each of the board's cells on the DOM. This should in turn call the makeMove() method on the Board() class.
 Game.prototype.init = function() {
@@ -30,7 +36,7 @@ Game.prototype.init = function() {
 
 // Create a Player() class that has a team, cellID, and playerScore property.
 var Player = function(team) {
-  this.team = 'x';
+  this.team = team;
   this.cellID = [];
   this.playerScore = 0;
 };
